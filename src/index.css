@@ -1144,17 +1144,65 @@ button {
     grid-template-columns: 1fr;
   }
   .navbar-container {
-    flex-direction: column;
-    gap: 1rem;
-    height: auto;
-    padding: 1rem 0;
+    height: 70px !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    gap: 0 !important;
   }
   .navbar {
-    height: auto;
+    height: 70px !important;
+  }
+  .mobile-hamburger-btn {
+    display: flex !important;
+  }
+  .nav-menu {
+    display: none !important;
+    position: absolute;
+    top: 70px;
+    left: -1rem;
+    right: -1rem;
+    width: calc(100% + 2rem);
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow-md);
+    flex-direction: column;
+    gap: 1.5rem !important;
+    z-index: 100;
+    align-items: stretch !important;
+  }
+  .nav-menu.mobile-open {
+    display: flex !important;
   }
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    width: 100%;
+  }
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  .nav-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+  }
+  .user-profile-nav {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    width: 100%;
+  }
+  .nav-buttons .btn {
+    display: block;
+    text-align: center;
+    width: 100%;
   }
   .footer-grid {
     grid-template-columns: 1fr;
