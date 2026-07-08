@@ -18,7 +18,7 @@ const Home = () => {
       
       {/* 1. Hero Section - Warm Asymmetric Layout */}
       <section style={{ padding: '5rem 0', borderBottom: '1px solid var(--neutral-200)', background: 'linear-gradient(180deg, #f5f2e9 0%, var(--neutral-50) 100%)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="container hero-grid">
           
           <div style={{ textAlign: 'left' }}>
             <span style={{ 
@@ -154,7 +154,7 @@ const Home = () => {
       {/* 2. How it works Section - Asymmetric Steps */}
       <section style={{ padding: '5rem 0', backgroundColor: 'var(--neutral-100)', borderBottom: '1px solid var(--neutral-200)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '3rem', alignItems: 'start', marginBottom: '3.5rem' }}>
+          <div className="steps-grid" style={{ marginBottom: '3.5rem' }}>
             <div>
               <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)' }}>How It Works</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '0.5rem', lineHeight: '1.6' }}>
