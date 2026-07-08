@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useDonations } from '../context/DonationContext';
 import { useAuth } from '../context/AuthContext';
 import FoodMap from '../components/FoodMap';
+import { API_BASE_URL } from '../config';
 
 const DonationDetails = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ const DonationDetails = () => {
     try {
       setLoadingRequests(true);
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch('http://localhost:5000/api/requests/my', {
+      const res = await fetch(`${API_BASE_URL}/api/requests/my`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -93,7 +94,7 @@ const DonationDetails = () => {
       setErrorMsg('');
       setSuccessMsg('');
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch('http://localhost:5000/api/requests', {
+      const res = await fetch(`${API_BASE_URL}/api/requests`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +131,7 @@ const DonationDetails = () => {
       setErrorMsg('');
       setSuccessMsg('');
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch(`http://localhost:5000/api/requests/${requestId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/requests/${requestId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': token ? `Bearer ${token}` : ''
@@ -157,7 +158,7 @@ const DonationDetails = () => {
       setErrorMsg('');
       setSuccessMsg('');
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch(`http://localhost:5000/api/requests/${requestId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/requests/${requestId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -186,7 +187,7 @@ const DonationDetails = () => {
       setErrorMsg('');
       setSuccessMsg('');
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch(`http://localhost:5000/api/requests/complete/${donation._id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/requests/complete/${donation._id}`, {
         method: 'POST',
         headers: {
           'Authorization': token ? `Bearer ${token}` : ''

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../config';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
@@ -20,21 +21,21 @@ const AdminDashboard = () => {
       };
 
       // 1. Fetch dashboard metrics stats
-      const statsRes = await fetch('http://localhost:5000/api/admin/stats', { headers });
+      const statsRes = await fetch(`${API_BASE_URL}/api/admin/stats`, { headers });
       const statsData = await statsRes.json();
       if (statsData.success) {
         setStats(statsData.data);
       }
 
       // 2. Fetch users register
-      const usersRes = await fetch('http://localhost:5000/api/admin/users', { headers });
+      const usersRes = await fetch(`${API_BASE_URL}/api/admin/users`, { headers });
       const usersData = await usersRes.json();
       if (usersData.success) {
         setUsersList(usersData.data);
       }
 
       // 3. Fetch all donations register
-      const donationsRes = await fetch('http://localhost:5000/api/admin/donations', { headers });
+      const donationsRes = await fetch(`${API_BASE_URL}/api/admin/donations`, { headers });
       const donationsData = await donationsRes.json();
       if (donationsData.success) {
         setDonationsList(donationsData.data);
@@ -58,7 +59,7 @@ const AdminDashboard = () => {
 
     try {
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch(`http://localhost:5000/api/admin/donations/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/donations/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': token ? `Bearer ${token}` : ''

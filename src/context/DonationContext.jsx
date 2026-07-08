@@ -1,9 +1,10 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 
 const DonationContext = createContext(null);
 
-const DONATIONS_API = 'http://localhost:5000/api/donations';
-const REQUESTS_API = 'http://localhost:5000/api/requests';
+const DONATIONS_API = `${API_BASE_URL}/api/donations`;
+const REQUESTS_API = `${API_BASE_URL}/api/requests`;
 
 export const DonationProvider = ({ children }) => {
   const [donations, setDonations] = useState([]);

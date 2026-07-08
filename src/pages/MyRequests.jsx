@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../config';
 
 const MyRequests = () => {
   const { user } = useAuth();
@@ -13,7 +14,7 @@ const MyRequests = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch('http://localhost:5000/api/requests/my', {
+      const res = await fetch(`${API_BASE_URL}/api/requests/my`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +46,7 @@ const MyRequests = () => {
 
     try {
       const token = localStorage.getItem('food_share_token');
-      const res = await fetch(`http://localhost:5000/api/requests/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/requests/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': token ? `Bearer ${token}` : ''
